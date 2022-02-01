@@ -1,0 +1,25 @@
+
+//this is the current state of the database data imported from the json file
+const applicationState = {
+    requests:"",
+
+}
+
+const API = "http://localhost:8088"
+
+export const fetchRequests = () => {
+    return fetch(`${API}/requests`)
+        .then(response => response.json())
+        .then(
+            (serviceRequests) => {
+                // Store the external state in application state
+                applicationState.requests = serviceRequests
+            }
+        )
+}
+
+export const getRequests = () => {
+    requestState = applicationState.requests.map(request => ({...request}))
+}
+
+console.log(applicationState)
