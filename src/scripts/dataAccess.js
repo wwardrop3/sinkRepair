@@ -15,7 +15,9 @@ const API = "http://localhost:8088"
 //this function gets the data from the json file and converts it to js object data
 export const fetchRequests = () => {
     //gets the requests array from the api folder
+
     return fetch(`${API}/requests`)
+
         //.then() waits till the fetch is done before converting json data
         .then(response => response.json())
         .then(
@@ -23,6 +25,7 @@ export const fetchRequests = () => {
             (serviceRequests) => {
                 // Store the external state in application state
                 applicationState.requests = serviceRequests
+                console.log(applicationState)
             }
         )
 }
@@ -31,8 +34,7 @@ export const getRequests = () => {
     return applicationState.requests.map(request => ({...request}))
 }
 
-const test1 = fetchRequests()
-const test = getRequests()
-console.log(test)
+const gettingRequest = getRequests()
+
 
 

@@ -1,5 +1,6 @@
 //Convert each service request object into HTML representations. Since it is wrapped with a <ul> element, make each one an <li> element showing only the description of the request to start.
 
+import { getRequests } from "./dataAccess.js"
 import { Requests } from "./Requests.js"
 
 

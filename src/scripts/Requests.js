@@ -1,11 +1,16 @@
 import { getRequests } from "./dataAccess.js"
 
 
-const requests = getRequests()
+
+
+
+
 //function returns an html list of service requests
 export const Requests = () => {
+    const requests = getRequests()
     let html = `<ul>`
     const listArray = requests.map(request => {
+        console.log("asdf")
         return`<li>${request.description}</li>`
     })
     const listHtml = listArray.join("")
