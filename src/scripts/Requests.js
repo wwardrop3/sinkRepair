@@ -10,7 +10,6 @@ export const Requests = () => {
     const requests = getRequests()
     let html = `<ul>`
     const listArray = requests.map(request => {
-        console.log("asdf")
         return`<li>${request.description}</li>`
     })
     const listHtml = listArray.join("")

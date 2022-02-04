@@ -18,3 +18,19 @@ h1,h2,h3,h4,h5,h6 {
   letter-spacing: 2px;
 }
 
+.label {
+	color: gray;
+	display: flex;
+	font-size: larger;
+}
+
+button{
+	margin-top: 1em;
+	background-color: blue;
+	color: white;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+}
