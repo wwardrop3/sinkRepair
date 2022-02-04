@@ -5,6 +5,7 @@
 
 const mainContainer = document.querySelector("#container") //need to definine main container in every module it is called.  This also exists in main.js
 
+
 const applicationState = {
     requests: [],
     plumbers: [],
@@ -49,13 +50,24 @@ export const sendRequest = (userServiceRequest) => {
         body: JSON.stringify(userServiceRequest)
     }
 
-//function sends
+
+    //function sends
     return fetch(`${API}/requests`, fetchOptions) //fetch options is defined above with the POST method.
         .then(response => response.json())
         .then(() => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged")) //This will create a "stateChanged" (just like a "click") event...Program will listen for when this happens
+        }
+        )
     }
-    )}
 
 
 
+export const deleteRequest = (id) => {
+return fetch(`${API}/requests/${id}`, { method: "DELETE" }) //takes in an id value passed in by delete button from requests module, deletes the json object with that id
+.then(
+    () => {
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged")) //statechanged custom event will be heard by the main module that will rerender the html once it is triggered.  
+        //2 custom events can use the same "stateChanged" identifier
+    }
+)
+}
