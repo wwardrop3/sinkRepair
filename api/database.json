@@ -1,20 +1,36 @@
 {
-  "plumbers": [],
-  "completions": [],
-  "requests": [
+  "plumbers": [
     {
-      "description": "3rd Item",
-      "address": "120 nsdfs",
-      "budget": "230",
-      "neededBy": "2022-02-09",
-      "id": 3
+      "id": "1",
+      "name": "Maude"
     },
     {
-      "description": "asdfasd",
-      "address": "123",
-      "budget": "500",
-      "neededBy": "2022-02-16",
-      "id": 4
+      "id": "2",
+      "name": "Merle"
+    }
+  ],
+  "completions": [
+    {
+      "description": "aaaa",
+      "address": "",
+      "budget": "",
+      "neededBy": "",
+      "completed": true,
+      "id": 1,
+      "plumberId": 1,
+      "finishedBy": 1645128299454
+    }
+  ],
+  "requests": [
+    {
+      "description": "aaaa",
+      "address": "",
+      "budget": "",
+      "neededBy": "",
+      "completed": true,
+      "id": 1,
+      "plumberId": 1,
+      "finishedBy": 1645128299454
     }
   ]
 }

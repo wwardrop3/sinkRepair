@@ -21,7 +21,6 @@ export const ServiceForm = () => {
 
         <button class="button" id="submitRequest">Submit Request</button>
     `
-
     return html
 }
 
@@ -40,14 +39,17 @@ mainContainer.addEventListener("click", clickEvent => {
         const userDate = document.querySelector("input[name='serviceDate']").value
 
         // Make an object out of the user input
-        const dataToSendToAPI = {
+        const datatoSendSendtoJson = {
             description: userDescription,
             address: userAddress,
             budget: userBudget,
-            neededBy: userDate
+            neededBy: userDate,
+            completed: false,
         }
 
         // Send the object created above with the input data to the API for permanent storage
-        sendRequest(dataToSendToAPI)
+        sendRequest(datatoSendSendtoJson)
     }
+
 })
+
