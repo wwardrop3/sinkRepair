@@ -130,12 +130,18 @@ export const getCompletions = () => {
 
 //finds request object that was clicked on to assign a plumber
 export const setPlumber = (requestId, plumberId) => {
+    const foundPlumber = applicationState.plumbers.find(plumber => {
+        return plumber.id === plumberId
+    })
+    console.log(foundPlumber)
     let updatedRequest = ""
     for(const request of applicationState.requests){
         if(request.id === parseInt(requestId)){
             request.plumberId = parseInt(plumberId)
+            request.plumberName = foundPlumber.name
             request.finishedBy = Date.now()
             request.completed = true
+            
             updatedRequest = request
             //hide dropdown once it is selected
 
@@ -154,7 +160,8 @@ export const sendCompletedRequest = (updatedRequest) => {
         body: JSON.stringify(updatedRequest)
     }
     document.dispatchEvent(new CustomEvent("completedRequestSaved"))
-    return fetch(`${API}/completions`, fetchOptions) //Why doesnt this have a second parameter like the fetch method at the bottom???
+    return fetch(`${API}/completions`, fetchOptions)
+    .then(response => response.json()) //Why doesnt this have a second parameter like the fetch method at the bottom???
 
     //.then() waits till the fetch is done before converting json data
     

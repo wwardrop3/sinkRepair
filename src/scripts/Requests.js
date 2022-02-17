@@ -8,9 +8,11 @@ import { deleteCompletion, deleteRequest, fetchRequests, getPlumbers, getRequest
 //function returns an html list of service requests
 export const Requests = () => {
     const requests = getRequests()
+    const sortedRequests1 = requests.sort((a,b) => b.finishedBy > a.finishedBy)
+    const sortedRequests2 = requests.sort((a,b)=> a.completed - b.completed)
     let html = `<ul>`
-    const listArray = requests.map(request => {
-        return`<li>
+    const listArray = sortedRequests2.map(request => {
+        return`<li style = "background-color:${checkStatus(request, sortedRequests2)}">
         ${request.description}
         ${checkCompleted(parseInt(request.id))}
         <button class = "request__delete" id = request--${request.id}">Delete</button>
@@ -42,7 +44,7 @@ const checkCompleted = (requestId) => {
         return request.id === requestId
     })
     if(foundRequest.completed === true){
-        return ``
+        return `${foundRequest.plumberName}`
     } else {
         return `<select name = "plumberSelected" id = "idOfRequest--${requestId}">
         <option value = "0">Select Plumber</option>
@@ -54,10 +56,15 @@ const checkCompleted = (requestId) => {
 
 }
     
+const checkStatus = (requestObject, sortedRequests2) => {
 
-
-
-                
-                        
-                
-    
+    if(requestObject.completed === true){
+        return "lightgray"
+    } else {
+        if(sortedRequests2.findIndex(x => x.id === requestObject.id) % 2 == 0){
+            return "white"
+        } else{
+            return "lightblue"
+        }
+    }
+}
