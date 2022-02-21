@@ -14,7 +14,7 @@ const applicationState = {
 }
 
 //navigate to the api directory in terminal before hosting the json server
-const API = "http://localhost:8088"
+const API = "http://localhost:8089"
 
 //this function gets the data from the json file and converts it to js object data
 export const fetchRequests = () => {

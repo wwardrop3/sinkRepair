@@ -9,7 +9,7 @@ import { deleteCompletion, deleteRequest, fetchRequests, getPlumbers, getRequest
 export const Requests = () => {
     const requests = getRequests()
     const sortedRequests1 = requests.sort((a,b) => b.finishedBy > a.finishedBy)
-    const sortedRequests2 = requests.sort((a,b)=> a.completed - b.completed)
+    const sortedRequests2 = sortedRequests1.sort((a,b)=> a.completed - b.completed)
     let html = `<ul>`
     const listArray = sortedRequests2.map(request => {
         return`<li style = "background-color:${checkStatus(request, sortedRequests2)}">

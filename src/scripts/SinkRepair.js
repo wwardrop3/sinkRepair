@@ -18,12 +18,3 @@ export const SinkRepair = () => {
     `
 }
 
-document.addEventListener(
-    "requestDeleted",
-    (customEvent)=>{
-        const htmlTarget = document.querySelector(".serviceRequests").innerHTML = 
-        `<h2>Service Requests</h2>
-        ${Requests}`
-    }
-
-)
